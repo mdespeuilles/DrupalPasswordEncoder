@@ -45,4 +45,12 @@ class DrupalPasswordEncoder implements PasswordEncoderInterface
     {
         return $this->drupalPasswordService->check($raw, $encoded);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function needsRehash(string $encoded): bool
+    {
+        return true;
+    }
 }
